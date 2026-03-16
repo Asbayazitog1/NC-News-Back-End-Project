@@ -31,6 +31,9 @@ app.all('*' ,(req,res,next) =>{
 
 app.use(handlePsqErrors);
 app.use(handleCustomErrors);
+app.use((err, req, res, next) => {
+  res.status(500).send({ msg: "Internal server error" });
+});
 
 
 
